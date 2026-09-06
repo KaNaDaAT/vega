@@ -1,5 +1,8 @@
-import { symbol } from '../path/shapes.js';
-import { intersectPoint } from '../util/intersect.js';
+import Bounds from '../Bounds.js';
+import boundContext from '../bound/boundContext.js';
+import boundStroke from '../bound/boundStroke.js';
+import {symbol} from '../path/shapes.js';
+import {intersectPoint} from '../util/intersect.js';
 import markItemPath from './markItemPath.js';
 
 const unitBounds = Object.create(null);
@@ -36,3 +39,8 @@ function bound(bounds, item) {
 
   return boundStroke(bounds, item, true).translate(item.x || 0, item.y || 0);
 }
+
+export default {
+  ...markItemPath('symbol', symbol, intersectPoint),
+  bound
+};
