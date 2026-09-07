@@ -31,7 +31,7 @@ function boundEqual(t, item, msg) {
 
 tape('symbol bound should match the path it replaces', t => {
   shapes.forEach(shape => {
-    [undefined, 1, 10, 64, 100, 400, 2500].forEach(size => {
+    [undefined, null, 0, 1, 10, 64, 100, 400, 2500, -100, NaN].forEach(size => {
       boundEqual(t, {x: 0, y: 0, size, shape}, shape + ' size ' + size + ' at origin');
       boundEqual(t, {x: 137.25, y: -42.5, size, shape}, shape + ' size ' + size + ' translated');
     });
