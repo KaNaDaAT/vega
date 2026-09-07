@@ -7,15 +7,12 @@ import markItemPath from './markItemPath.js';
 
 const unitBounds = Object.create(null);
 
-/** Size used to construct unit bounds, resulting in a scale factor of 1. */
-const UNIT_SYMBOL_SIZE = 4;
-
 function unitBox(shape) {
   let box = unitBounds[shape];
 
   if (box === undefined) {
     const b = new Bounds();
-    symbol(boundContext(b, 0), {shape, size: UNIT_SYMBOL_SIZE});
+    symbol(boundContext(b, 0), {shape, size: 4}); // sqrt(4) / 2 = 1, a unit box
     box = unitBounds[shape] = [b.x1, b.y1, b.x2, b.y2];
   }
 
